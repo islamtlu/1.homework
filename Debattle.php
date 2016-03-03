@@ -1,5 +1,4 @@
 <?php
-
 	// require another php file
 	// ../../ => 2 folders back - navigating to where the config file it
 	require_once ("../../config.php");
@@ -74,7 +73,8 @@
 		
 		//we are repalcing question marks with values
 		//s - string, date, smth that is based on characters and numbers
-		// i - integer, number// d - decimanl, float
+		// i - integer, number
+		// d - decimanl, float
 		
 		//for each question mark its type with one letter
 		$stmt->bind_param ("ssssi", $_GET["to"], $_GET["motion"], $_GET["bday"], $_GET["bday2"], $_GET["characters"]);

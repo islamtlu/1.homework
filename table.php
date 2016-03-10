@@ -18,7 +18,7 @@
 			// NOW () = current date-time
 			$stmt = $mysql->prepare("UPDATE debattle_request SET deleted=NOW() WHERE id = ?");
 			
-			// replace the ?
+			// replace the ?. The i here is an integer for the id number
 			
 			$stmt->bind_param ("i", $_GET["delete"]);
 		
@@ -34,7 +34,9 @@
 	
 	
 	//SQL sentence // to show all results, remove ORDER 
-	$stmt = $mysql->prepare("SELECT id, challengee, motion, start_date, end_date, characters, created FROM debattle_request ORDER BY created LIMIT 10");
+	$stmt = $mysql->prepare("SELECT id, challengee, motion, start_date, end_date, characters, created FROM debattle_request WHERE deleted IS NULL ORDER BY created LIMIT 10 ");
+	
+	// on the above WHERE, WHERE deleted IS NULL show only those that are not deleted. WHERE should be before the ORDER
 	
 	//if error in sentence
 	echo $mysql->error;
@@ -76,7 +78,7 @@
 		$table_html .= "<td>" .$end_date. "</td>"; 
 		$table_html .= "<td>" .$characters. "</td>"; 
 		$table_html .= "<td>" .$created. "</td>";
-		$table_html .= "<td><a href='?delete=" .$id."'>X</a></td>";		
+		$table_html .= "<td><a href='?delete=" .$id."'>Remove</a></td>";		
 	$table_html .= "</tr>"; //end row
 		
 	}

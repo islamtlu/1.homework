@@ -59,7 +59,7 @@
 		//access username from config
 		//echo $db_username;
 		
-		//1 servername
+		//1 servername: localhost or greeny server
 		//2 username
 		//3 password
 		//4 database
@@ -122,3 +122,5 @@
 	<input type="submit" value="Start the Challenge">
 
 <form>
+<br> <br>
+<a href=table.php>Table Results</a>
